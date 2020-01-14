@@ -23,7 +23,7 @@ int main(){
         cout << '_';
     cout << endl;
     bool test = 0;
-    int guess = 0;
+    int nbGuess = 0;
     while(!test){
         char guess;
         cout << "Enter guess: ", cin >> guess;
@@ -41,8 +41,10 @@ int main(){
 
         }
         else{
-            guess++;
+            nbGuess++;
         }
+
+        cout << nbGuess;
 
         for (int i = 0; i < word.size(); i++)
         {
@@ -50,10 +52,15 @@ int main(){
             cout << blank[i];
         }
         
-        
 
-        if(blank == word)
+
+        if(blank == word && nbGuess < 6)
             test = 1;
+        else if(nbGuess == 6){
+            cout << "You Lose.\n";
+            test = 1;
+        }
+            
     }
 
 }
